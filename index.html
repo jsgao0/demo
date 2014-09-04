@@ -20,6 +20,9 @@
                 return this.charAt(0).toUpperCase() + this.substr(1);
             }
 
+            //test
+            console.log("carousel".ucfirst())
+
             var pf = angular.module('protfolio', []);
 
             var templateFrameworks = {
@@ -36,16 +39,15 @@
             };
 
             (function (tf) {
-                for(frameworkKey in tf.templateFrameworks) {
-                    for(templateKey in tf.templateFrameworks[frameworkKey]) {
+                for(frameworkKey in tf) {
+                    for(templateKey in tf[frameworkKey]) {
+                        console.log(frameworkKey + templateKey.ucfirst());
                         pf.directive(frameworkKey + templateKey.ucfirst(), templateDirective());
                     }
                 }
-                    
-
             })(templateFrameworks);
 
-            console.log(pf);
+            // console.log(pf);
 
             // pf.controller('templatesController', function() {
             //     this.templateFrameworks = {
