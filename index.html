@@ -32,6 +32,7 @@
             };
 
             var templateDirective = function (framework, template) {
+                console.log("./templates/" + framework + "-" + template + ".html")
                 return {
                     restrict: 'E',
                     templateUrl: "./templates/" + framework + "-" + template + ".html"
@@ -42,7 +43,12 @@
                 for(frameworkKey in tf) {
                     for(templateKey in tf[frameworkKey]) {
                         console.log(frameworkKey + templateKey.ucfirst());
-                        pf.directive(frameworkKey + templateKey.ucfirst(), templateDirective());
+                        pf.directive(
+                            frameworkKey + templateKey.ucfirst(), 
+                            function() {
+                                return templateDirective(frameworkKey, templateKey)
+                            }
+                        );
                     }
                 }
             })(templateFrameworks);
