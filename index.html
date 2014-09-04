@@ -15,29 +15,60 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script type="text/javascript">
-            var pf = angular.module('protfolio', []);
-            pf.controller('templatesController', function() {
-                this.templateFrameworks = {
-                    bootstrap: {
-                        carousel: "bootstrapCarousel"
-                    }
-                };
-                this.templateDirectve = {
-                    setDirectiveName: function() {
-                        console.log(this)
-                    }
-                };
-                for(templatesKey in this.templateFrameworks)
-                    for(templateKey in this.templateFrameworks[templatesKey])
-                        console.log(templatesKey+templateKey)
-            });
 
-            pf.directive('bootstrapCarousel', function() {
+            String.prototype.ucfirst = function() {
+                return this.charAt(0).toUpperCase() + this.substr(1);
+            }
+
+            var pf = angular.module('protfolio', []);
+
+            var templateFrameworks = {
+                bootstrap: {
+                    carousel: "bootstrapCarousel"
+                }
+            };
+
+            var templateDirective = function (framework, template) {
                 return {
                     restrict: 'E',
-                    templateUrl: "./templates/" + "bootstrap-carousel.html"
+                    templateUrl: "./templates/" + framework + "-" + template + ".html"
                 };
-            });
+            };
+
+            (function (tf) {
+                for(frameworkKey in tf.templateFrameworks) {
+                    for(templateKey in tf.templateFrameworks[frameworkKey]) {
+                        pf.directive(frameworkKey + templateKey.ucfirst(), templateDirective());
+                    }
+                }
+                    
+
+            })(templateFrameworks);
+
+            console.log(pf);
+
+            // pf.controller('templatesController', function() {
+            //     this.templateFrameworks = {
+            //         bootstrap: {
+            //             carousel: "bootstrapCarousel"
+            //         }
+            //     };
+            //     this.templateDirectve = {
+            //         setDirectiveName: function() {
+            //             console.log(this)
+            //         }
+            //     };
+            //     for(templatesKey in this.templateFrameworks)
+            //         for(templateKey in this.templateFrameworks[templatesKey])
+            //             console.log(templatesKey+templateKey)
+            // });
+
+            // pf.directive('bootstrapCarousel', function() {
+            //     return {
+            //         restrict: 'E',
+            //         templateUrl: "./templates/" + "bootstrap-carousel.html"
+            //     };
+            // });
 
             pf.controller('headerController', function() {
                 this.k = 1;
@@ -51,7 +82,7 @@
         </script>
     </head>
 
-    <body ng-controller="templatesController as tempCtrl">
+    <body>
 
         <div id="container" ng-controller="containerController as containerCtrl">
             <bootstrap-carousel></bootstrap-carousel>
