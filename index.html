@@ -23,15 +23,22 @@
                     }
                 };
                 this.templateDirectve = {
-                    this.setDirectiveName = function() {
-                        
+                    setDirectiveName: function() {
+                        console.log(this)
                     }
                 };
                 for(templatesKey in this.templateFrameworks)
                     for(templateKey in this.templateFrameworks[templatesKey])
                         console.log(templatesKey+templateKey)
             });
-            // pf.directive('b');
+
+            pf.directive('bootstrapCarousel', function() {
+                return {
+                    restrict: 'E',
+                    templateUrl: "./templates/" + "bootstrap-carousel.html"
+                };
+            });
+
             pf.controller('headerController', function() {
                 this.k = 1;
             });
