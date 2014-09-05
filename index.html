@@ -27,15 +27,23 @@
 
             var templateFrameworks = {
                 bootstrap: {
-                    carousel: "bootstrapCarousel"
-                }
+                    carousel: {
+                        controller: function() {
+
+                        };
+                    };
+                };
             };
 
-            var templateDirective = function (framework, template) {
+            var templateDirective = function (framework, template, controller) {
                 console.log("./templates/" + framework + "-" + template + ".html")
                 return {
                     restrict: 'E',
-                    templateUrl: "./templates/" + framework + "-" + template + ".html"
+                    templateUrl: "./templates/" + framework + "-" + template + ".html",
+                    controller: function() {
+                        controller();
+                    },
+                    controllerAs: framework + template.ucfirst()
                 };
             };
 
@@ -46,11 +54,11 @@
                         pf.directive(
                             frameworkKey + templateKey.ucfirst(), 
                             function() {
-                                return templateDirective(frameworkKey, templateKey)
+                                return templateDirective(frameworkKey, templateKey, templateKey[controller]);
                             }
                         );
-                    }
-                }
+                    };
+                };
             })(templateFrameworks);
 
             // console.log(pf);
