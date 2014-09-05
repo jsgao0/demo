@@ -21,40 +21,48 @@
             }
 
             //test
-            console.log("carousel".ucfirst())
+            // console.log("carousel".ucfirst())
 
             var pf = angular.module('protfolio', []);
 
             var templateFrameworks = {
                 bootstrap: {
                     carousel: {
-                        controller: function() {
-
+                        files: {
+                            fileType: "photos",
+                            fileList: [
+                                {fileName: "DSC_2937.jpg"},
+                                {fileName: "DSC_5017.jpg"},
+                                {fileName: "DSC_5485.jpg"},
+                                {fileName: "DSC_8108.jpg"}
+                            ]
                         }
                     }
                 }
             };
 
-            var templateDirective = function (framework, template, controller) {
-                console.log("./templates/" + framework + "-" + template + ".html")
+            var templateDirective = function (frameworkKey, templateKey, template) {
                 return {
                     restrict: 'E',
-                    templateUrl: "./templates/" + framework + "-" + template + ".html",
+                    templateUrl: "./templates/" + frameworkKey + "-" + templateKey + ".html",
                     controller: function() {
-                        controller();
+                        console.log(template.files);
+                        this.files = template.files;
                     },
-                    controllerAs: framework + template.ucfirst()
+                    controllerAs: frameworkKey + templateKey.ucfirst() + "Ctrl"
                 };
             };
 
             (function (tf) {
                 for(frameworkKey in tf) {
                     for(templateKey in tf[frameworkKey]) {
-                        console.log(frameworkKey + templateKey.ucfirst());
+                        console.log("framework key:" + frameworkKey);
+                        console.log("template key:" + templateKey);
+                        console.log(tf[frameworkKey][templateKey])
                         pf.directive(
                             frameworkKey + templateKey.ucfirst(), 
                             function() {
-                                return templateDirective(frameworkKey, templateKey, templateKey[controller]);
+                                return templateDirective(frameworkKey, templateKey, tf[frameworkKey][templateKey]);
                             }
                         );
                     };
