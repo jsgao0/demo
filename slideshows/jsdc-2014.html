@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>JSDC 2014</h1>
+					<h3>"DESIGNERS MUST LEARN CODING!"</h3>
+					<p>
+						<small>
+							<a href="http://2014.jsdc.tw/schedule.html">Agenda</a>
+							/
+							<a href="http://2014.jsdc.tw/speakers.html">Speakers</a>
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Jeff Pope</h2>
+						<p>
+							<img src="http://2014.jsdc.tw/images/speakers/jeffpope.jpg">
+						</p>
+					</section>
+					<section>
+						<h1>Future of Enterprise</h1>
+						<h1>Web Applicatios</h1>
+					</section>
+					<section>
+						<img src="http://www.sencha.com/img/v2/logo.png">
+					</section>		
+					<section>
+						<h1>Ext js</h1>
+						<ul>
+							<li><a href="http://docs.sencha.com/" target="_blank">Docs</a></li>
+							<li><a href="http://www.sencha.com/company/customers/" target="_blank">Customers</a></li>
+							<li><a href="http://dev.sencha.com/ext/5.0.1/examples/index.html" target="_blank">Online Examples</a></li>
+						</ul>
+					</section>					
+				</section>
+
+				<section>
+					<section>
+						<h2>Maxwell Ogden </h2>
+						<img src="https://avatars3.githubusercontent.com/u/39759?v=2&s=460">
+					</section>
+
+					<section>
+						<h1>Use Node Modules In The Browser With Browserify</h1>
+					</section>
+
+					<section>
+						<h2><a href="https://tessel.io/" target="_blank">Javascript with TESSEL</a></h2>
+					</section>
+
+					<section>
+						<h1>npm publish</h1>
+						<pre class="fragment">
+							<code data-trim contenteditable>
+npm init
+
+npm publish
+							</code>
+						</pre>
+						<p class="fragment">Easy, Immediately</p>
+					</section>
+
+					<section>
+						<h2><a href="https://github.com/maxogden/packify" target="_blank">packify</a></h2>
+						<pre>
+							<code data-trim contenteditable>
+<img src="foo.png"> -> <img src="data:...">
+
+<link rel="stylesheet" href="foo.css"> -> <style> /** styles here **/ </style>
+
+<script src="foo.js"> -> <script> /** browserified foo.js here **/ </script>
+
+background-image { url(foo.png) } -> background-image { url('data:...') }
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h2>
+							<a href="https://travis-ci.org/" target="_blank">
+								<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNjAiIHdpZHRoPSIxNDQiPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXJHcmFkaWVudDM4MzMiIHkyPSI1Ny41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDI9IjIuNSIgeTE9IjIuNSIgeDE9IjIuNSI+CjxzdG9wIHN0b3AtY29sb3I9IiNkODQzMmYiIG9mZnNldD0iMCIvPgo8c3RvcCBzdG9wLWNvbG9yPSIjYzUyMTI3IiBvZmZzZXQ9IjEiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8Zz4KPHJlY3QgZmlsbC1ydWxlPSJldmVub2RkIiByeT0iNC4yODU3IiBoZWlnaHQ9IjYwIiB3aWR0aD0iNjAiIHk9Ii01LjEwN0UtMTUiIHg9IjAiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQzODMzKSIvPgo8ZyB0cmFuc2Zvcm09InNjYWxlKDAuOTU5MTMzOTQsMS4wNDI2MDcyKSIgZmlsbD0iI0ZGRiI+CjxwYXRoIGQ9Im04MC4zOTMsMjYuOTQ2Yy0wLjMzMTk1LTAuMTkyNzItMC42OTYtMC4zMzE5Mi0xLjA5MjItMC40MTc2LTAuMzg1NDgtMC4wOTYzNS0wLjgxMzc5LTAuMTQ0NTQtMS4yODQ5LTAuMTQ0NTUtMS42NzA0LDAuMDAwMDE1LTIuOTU1MywwLjU0NjEtMy44NTQ3LDEuNjM4My0wLjg4ODc0LDEuMDgxNS0xLjMzMzEsMi42Mzk0LTEuMzMzMSw0LjY3Mzl2OS40NzYyaC0yLjk3MTR2LTE3Ljk4OWgyLjk3MTR2Mi43OTQ3YzAuNjIxMDMtMS4wOTIyLDEuNDI5NS0xLjkwMDYsMi40MjUzLTIuNDI1MywwLjk5NTc5LTAuNTM1MzYsMi4yMDU3LTAuODAzMDUsMy42Mjk5LTAuODAzMDcsMC4yMDM0MywwLjAwMDAxOCwwLjQyODI5LDAuMDE2MDgsMC42NzQ1OCwwLjA0ODE4LDAuMjQ2MjYsMC4wMjE0MywwLjUxOTMsMC4wNTg5MSwwLjgxOTEzLDAuMTEyNDNsMC4wMTYwNiwzLjAzNTYiLz4KPHBhdGggZD0ibTkxLjcsMzMuMTNjLTIuMzg3OCwwLjAwMDAwOS00LjA0MjEsMC4yNzMwNS00Ljk2MywwLjgxOTEzLTAuOTIwODYsMC41NDYwOS0xLjM4MTMsMS40Nzc3LTEuMzgxMywyLjc5NDctMC4wMDAwMDUsMS4wNDkzLDAuMzQyNjQsMS44ODQ1LDEuMDI3OSwyLjUwNTYsMC42OTU5OCwwLjYxMDMzLDEuNjM4MiwwLjkxNTUsMi44MjY4LDAuOTE1NSwxLjYzODIsMC4wMDAwMDIsMi45NDk5LTAuNTc4MjEsMy45MzUtMS43MzQ2LDAuOTk1NzktMS4xNjcxLDEuNDkzNy0yLjcxNDQsMS40OTM3LTQuNjQxN3YtMC42NTg1MmgtMi45MzkybTUuODk0NS0xLjIyMDcsMCwxMC4yNjMtMi45NTUzLDAsMC0yLjczMDRjLTAuNjc0NTksMS4wOTIyLTEuNTE1MSwxLjkwMDYtMi41MjE2LDIuNDI1My0xLjAwNjUsMC41MTM5Ni0yLjIzNzksMC43NzA5NC0zLjY5NDEsMC43NzA5NC0xLjg0MTcsMC0zLjMwODYtMC41MTM5Ni00LjQwMDgtMS41NDE5LTEuMDgxNS0xLjAzODYtMS42MjIyLTIuNDI1My0xLjYyMjItNC4xNTk5LTAuMDAwMDAyLTIuMDIzNywwLjY3NDU3LTMuNTQ5NiwyLjAyMzctNC41Nzc1LDEuMzU5OS0xLjAyNzksMy4zODM2LTEuNTQxOSw2LjA3MTItMS41NDE5aDQuMTQzOHYtMC4yODkxYy0wLjAwMDAxNC0xLjM1OTgtMC40NDk3My0yLjQwOTItMS4zNDkyLTMuMTQ4LTAuODg4NzQtMC43NDk1MS0yLjE0MTUtMS4xMjQzLTMuNzU4NC0xLjEyNDMtMS4wMjc5LDAuMDAwMDE2LTIuMDI5MSwwLjEyMzE1LTMuMDAzNSwwLjM2OTQxLTAuOTc0MzksMC4yNDYyOS0xLjkxMTMsMC42MTU3LTIuODEwNywxLjEwODJ2LTIuNzMwNGMxLjA4MTUtMC40MTc1OCwyLjEzMDgtMC43MjgxLDMuMTQ4LTAuOTMxNTYsMS4wMTcyLTAuMjE0MTMsMi4wMDc3LTAuMzIxMjEsMi45NzE0LTAuMzIxMjMsMi42MDE5LDAuMDAwMDE4LDQuNTQ1MywwLjY3NDU5LDUuODMwMywyLjAyMzcsMS4yODQ5LDEuMzQ5MiwxLjkyNzMsMy4zOTQzLDEuOTI3NCw2LjEzNTQiLz4KPHBhdGggZD0ibTk5LjQ5MywyNC4xODMsMy4xMzIsMCw1LjYyMTUsMTUuMDk4LDUuNjIxNS0xNS4wOTgsMy4xMzIsMC02Ljc0NTgsMTcuOTg5LTQuMDE1MywwLTYuNzQ1OC0xNy45ODkiLz4KPHBhdGggZD0ibTExOS4yLDI0LjE4MywyLjk1NTMsMCwwLDE3Ljk4OS0yLjk1NTMsMCwwLTE3Ljk4OW0wLTcuMDAyNywyLjk1NTMsMCwwLDMuNzQyMy0yLjk1NTMsMCwwLTMuNzQyMyIvPgo8cGF0aCBpZD0icGF0aDMwMDciIHN0eWxlPSIiIGQ9Im0xMzguOTksMjQuNzEzLDAsMi43OTQ3Yy0wLjgzNTIxLTAuNDI4MjktMS43MDI1LTAuNzQ5NTEtMi42MDE5LTAuOTYzNjgtMC44OTk0NS0wLjIxNDE0LTEuODMxLTAuMzIxMjEtMi43OTQ3LTAuMzIxMjMtMS40NjY5LDAuMDAwMDE2LTIuNTY5OCwwLjIyNDg4LTMuMzA4NiwwLjY3NDU4LTAuNzI4MTIsMC40NDk3My0xLjA5MjIsMS4xMjQzLTEuMDkyMiwyLjAyMzcsMCwwLjY4NTMsMC4yNjIzMywxLjIyNiwwLjc4NzAxLDEuNjIyMiwwLjUyNDY2LDAuMzg1NDgsMS41Nzk0LDAuNzU0OSwzLjE2NDEsMS4xMDgybDEuMDExOSwwLjIyNDg2YzIuMDk4NywwLjQ0OTczLDMuNTg3LDEuMDg2OCw0LjQ2NSwxLjkxMTMsMC44ODg3MiwwLjgxMzc4LDEuMzMzMSwxLjk1NDEsMS4zMzMxLDMuNDIxMS0wLjAwMDAyLDEuNjcwNC0wLjY2Mzg5LDIuOTkyOC0xLjk5MTYsMy45NjcyLTEuMzE3LDAuOTc0MzktMy4xMzIsMS40NjE2LTUuNDQ0OCwxLjQ2MTYtMC45NjM2OSwwLTEuOTcwMi0wLjA5NjM3LTMuMDE5NS0wLjI4OTEtMS4wMzg2LTAuMTgyMDMtMi4xMzYyLTAuNDYwNDItMy4yOTI2LTAuODM1MTl2LTMuMDUxN2MxLjA5MjIsMC41Njc1LDIuMTY4MywwLjk5NTgxLDMuMjI4MywxLjI4NDksMS4wNiwwLjI3ODQsMi4xMDk0LDAuNDE3NiwzLjE0OCwwLjQxNzYsMS4zOTIsMC4wMDAwMDIsMi40NjI3LTAuMjM1NTYsMy4yMTIzLTAuNzA2NywwLjc0OTUxLTAuNDgxODQsMS4xMjQzLTEuMTU2NCwxLjEyNDMtMi4wMjM3LTAuMDAwMDEtMC44MDMwNi0wLjI3MzA1LTEuNDE4Ny0wLjgxOTEzLTEuODQ3MS0wLjUzNTM5LTAuNDI4My0xLjcxODYtMC44NDA1NC0zLjU0OTYtMS4yMzY3bC0xLjAyNzktMC4yNDA5MmMtMS44MzEtMC4zODU0Ni0zLjE1MzQtMC45NzQzOC0zLjk2NzItMS43NjY3LTAuODEzNzctMC44MDMwNi0xLjIyMDctMS45MDA2LTEuMjIwNy0zLjI5MjYsMC0xLjY5MTgsMC41OTk2Mi0yLjk5ODEsMS43OTg5LTMuOTE5LDEuMTk5Mi0wLjkyMDgzLDIuOTAxOC0xLjM4MTMsNS4xMDc1LTEuMzgxMywxLjA5MjIsMC4wMDAwMTgsMi4xMjAxLDAuMDgwMzIsMy4wODM4LDAuMjQwOTIsMC45NjM2NywwLjE2MDYzLDEuODUyNCwwLjQwMTU1LDIuNjY2MiwwLjcyMjc2Ii8+CjwvZz4KPGcgZmlsbC1vcGFjaXR5PSIwIiB0cmFuc2Zvcm09InNjYWxlKDAuOTk4NDAzMDcsMS4wMDE1OTk1KSIgc3Ryb2tlPSIjRkZGIiBzdHJva2UtbWl0ZXJsaW1pdD0iNCIgc3Ryb2tlLXdpZHRoPSIyIj4KPHBhdGggaWQ9InBhdGgzODEzIiBzdHJva2U9IiNGRkYiIGQ9Im0yMS41MzQsNDIuOTMxLDQuMDA2NCwwLDAtMjYuNDU4LTYuMDA5NiwwLTAuMDAwMDAzLDQuOTkyLTkuMDE0NCwwLDAtMTIuOTc5LDM5LjA2MiwwLDAsMTIuOTc5LTguNTEzNiwwLDAtNC45OTItNi41MTA0LDAsMCwyNi40NTgsNC4wMDY0LDAtMC4xMjkxNSw4LjI3NTItMTYuODk4LDAuMjExMjF6Ii8+CjwvZz4KPC9nPgo8L3N2Zz4KCg==">
+							</a>
+						</h2>
+					</section>
+
+					<section>
+						<img src="https://ci.testling.com/_/images/testling_mission_control.png">
+						<h2>
+							<a href="https://ci.testling.com/" target="_blank">
+								TESTLING
+							</a>
+						</h2>
+					</section>
+
+					<section>
+						<h2>
+							<a href="http://blockplot.com/" target="_blank">
+								<img src="http://blockplot.com/img/logo.png">
+							</a>
+						</h2>
+					</section>
+
+					<section>
+						<h2>
+							<a href="http://requirebin.com/" target="_blank">
+								<img src="http://requirebin.com/img/logo-black.png">
+							</a>
+						</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Hsiaoming Yang</h2>
+						<p>
+							<img src="http://pyconcn.qiniudn.com/images/speakers/Hsiaoming.jpg?ver=20131211">
+						</p>
+					</section>
+					<section>
+						<h2>不被重視的HTML: Accessibility</h2>
+						<ul>
+							<li class="fragment">
+								<a href="http://support.apple.com/kb/ht3597" target="_blank">Voice Control</a>
+							</li>
+							<li class="fragment">
+								<a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA" target="_blank">aria-* attribute</a>
+							</li>
+							<li class="fragment">
+								<a href="http://www.w3.org/TR/wai-aria/roles" target="_blank">Roles Model</a>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Tools</h2>
+						<ul>
+							<li><a href="http://www.chromevox.com/" target="_blank">Chromevox</a></li>
+							<li><a href="https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb" target="_blank">Accessibility Developer Tools</a></li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Clkao</h2>
+						<p>
+							<img src="https://s3-ap-northeast-1.amazonaws.com/kkbox-registrano/upload_images/33952/clkao-smile_promote.png">
+						</p>
+					</section>
+					<section>
+						<h1>PgREST - PostgreSQL, JavaScript, and REST</h1>
+					</section>
+					<section>
+						<h2><a href="http://pgre.st/" target="_blank">PgREST</a></h2>
+						<ul>
+							<li>Schema = namespace</li>
+							<li>View = predefined queries, materialize views</li>
+							<li>Triggers & Rules</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Huge</h2>
+						<p>
+							<img src="http://qph.is.quoracdn.net/main-thumb-58305-200-DYlPNC1zzH39bF8AaCVZi4YSdj80sjt2.jpeg">
+						</p>
+					</section>
+					<section>
+						<h1>RxJS for frontend developers.</h1>
+					</section>
+					<section>
+						<h2>5 Basic Operators</h2>
+						<ul>
+							<li>forEach</li>
+							<li>map</li>
+							<li>filter</li>
+							<li>reduce</li>
+							<li>contactAll</li>
+						</ul>
+					</section>
+					<section>
+						<a href="http://rxmarbles.com/" target="_blank">Rx Marbles</a>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2><a href="http://substack.net/" target="_blank">substack</a></h2>
+						<p>
+							<img src="http://maxogden.github.io/tenconf/speakers/substack.png">
+						</p>
+					</section>
+					<section>
+						<h1><a href="https://github.com/substack/jsdc.tw-2014" target="_blank">Micro Databases</a></h1>
+					</section>
+					<section>
+						<ul>
+							<li><a href="https://github.com/substack/forkdb" target="_blank">forkdb</a></li>
+							<li><a href="https://www.npmjs.org/package/content-addressable-blob-store" target="_blank">blob storage system</a></li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Jessica</h2>
+						<p>
+							<img src="http://2014.jsdc.tw/images/speakers/jlord.png">
+						</p>
+					</section>
+					<section>
+						<h1>Teaching Git and GitHub with Node.js</h1>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Ruben</h2>
+						<p>
+							<img src="http://2014.jsdc.tw/images/speakers/soggie.jpeg">
+						</p>
+					</section>
+					<section>
+						<h1>Leveraging ZMQ with Node.js</h1>
+					</section>
+					<section>
+						<h2><a href="http://zeromq.org/" target="_blank">ZeroMQ</a></h2>
+					</section>
+					<section>
+						<h2>References</h2>
+						<ul>
+							<li><a href="http://blog.ez2learn.com/2011/12/31/transport-lib-of-new-era-zeromq/" target="_blank">新世紀通訊函式庫 – ZeroMQ</a></li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>吳亮</h2>
+						<p>
+							<img src="http://2014.jsdc.tw/images/speakers/akira.jpeg">
+						</p>
+					</section>
+					<section>
+						<h1>大型互聯網公司前端團隊的那些事兒</h1>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Mathias</h2>
+						<p>
+							<img src="http://2014.jsdc.tw/images/speakers/mafintosh.jpeg">
+						</p>
+					</section>
+					<section>
+						<h1>Node.js, p2p and MAD SCIENCE</h1>
+					</section>
+					<section>
+						<h2>BitTorrent</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Muan</h2>
+						<p>
+							<img src="http://2014.jsdc.tw/images/speakers/muan.jpeg">
+						</p>
+					</section>
+					<section>
+						<h1>GitHub 大冒險</h1>
+					</section>
+					<section>
+						<h2>Remote該有的條件</h2>
+						<ul>
+							<li class="fragment">Asynchronous</li>
+							<li class="fragment">non-blocking</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Frontend Team</h2>
+						<ul>
+							<li class="fragment">Protypes</li>
+							<li class="fragment">Cares about code</li>
+							<li class="fragment">designer need to learn coding</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Linting + CI</h2>
+						<ul>
+							<li class="fragment">Pass, or not be deployed</li>
+							<li class="fragment"><a href="https://github.com/styleguide" target="_blank">Styleguide</a></li>
+							<li class="fragment"><a href="https://hubot.github.com/">Hubot</a></li>
+						</ul>
+					</section>
+				</section>
+				<section data-transition="fade">
+					<h1>Thanks</h1>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
