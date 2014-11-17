@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>AngularJS</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			var app = angular.module('app', []);
+			app.controller("nameCtrl", function($scope) {
+				$scope.name = {
+					first: "Anson",
+					last:  "Gao"
+				};
+			});
+			app.controller('nameCtrlClass', function() {
+				this.first = "Anson";
+				this.last =  "Gao";
+			});
+			app.controller('renderList', function($scope) {
+				$scope.memberList = [
+					{firstName: "Rog", lastName: "Lee"},
+					{firstName: "Derek", lastName: "Wu"},
+					{firstName: "Anson", lastName: "Gao"},
+					{firstName: "Saber", lastName: "Wu"},
+					{firstName: "Larry", lastName: "Lo"}
+				];
+				$scope.speficLastName = "Lee";
+			});
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>AngularJS</h1>
+					<h3>A framework of ECMAScript</h3>
+					<p>Anson</p>
+					<small>(Gao Jia Siang... JS Gao??)</small>
+				</section>
+
+				<section>
+					<section>
+						<h2>ECMAScript??</h2>
+						<ul>
+							<li class="fragment">Javascript</li>
+							<li class="fragment">jQuery</li>
+							<li class="fragment">Bootstrap</li>
+						</ul>
+					</section>
+					<section>
+						<h1>Then?</h1>
+					</section>
+					<section>
+						<iframe src="http://www.youtube.com/embed/kkBsNU16O0E" height="600" width="1200"></iframe>
+					</section>						
+				</section>
+
+				<section>
+					<section>
+						<h2>ng-app</h2>
+						<p>Declares the root element of an AngularJS application, under which directives can be used to declare bindings and define behavior.</p>
+					</section>
+
+					<section>
+						<h2>The code</h2>
+						<pre class="fragment">
+							<code data-trim contenteditable>
+&lt;!DOCTYPE html>
+&lt;html ng-app="app">
+    ...
+    var app = angular.module('app', []);
+&lt;/html>
+							</code>
+						</pre>
+						<p class="fragment">Then, you built an Angular application.</p>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>ng-controller</h2>
+					</section>
+					<section>
+						<h2>With Scope</h2>
+						<pre class="fragment">
+							<code data-trim contenteditable>
+&lt;head>
+	&lt;script>
+		app.controller('nameCtrl', function($scope) {
+			$scope.name = {
+				first: "Anson",
+				last:  "Gao"
+			};
+		});
+	&lt;/script>
+&lt;/head>
+&lt;body ng-controller="nameCtrl">
+	&lt;h2>
+		&lt;span ng-bind="name.first">&lt;/span>
+		&lt;span ng-bind="name.last">&lt;/span>
+	&lt;/h2>
+&lt;/body>
+							</code>
+						</pre>
+						<p class="fragment">You created a controller with $scope.</p>
+					</section>
+					<section>
+						<h2>Preview</h2>
+						<pre class="fragment" ng-controller="nameCtrl" style="font-size:150%;">
+<span ng-bind="name.first"></span> <span ng-bind="name.last"></span>
+						</pre>
+					</section>
+					<section>
+						<h2>Without Scope</h2>
+						<pre class="fragment">
+							<code data-trim contenteditable>
+&lt;head>
+	&lt;script>
+		app.controller('nameCtrlClass', function() {
+			this.first: "Anson";
+			this.last:  "Gao";
+		});
+	&lt;/script>
+&lt;/head>
+&lt;body ng-controller="nameCtrlClass as nameObj">
+	&lt;span ng-bind="nameObj.first">&lt;/span>
+	&lt;span ng-bind="nameObj.last">&lt;/span>
+&lt;/body>
+							</code>
+						</pre>
+						<p class="fragment">You created a controller as a class.</p>
+					</section>
+					<section>
+						<h2>Preview</h2>
+						<pre class="fragment" ng-controller="nameCtrlClass as nameObj" style="font-size:150%;">
+<span ng-bind="nameObj.first"></span> <span ng-bind="nameObj.last"></span>
+						</pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>ng-if</h2>
+					</section>
+					<section>
+						<h2>How to use?</h2>
+						<pre class="fragment">
+							<code data-trim contenteditable>
+&lt;head>
+	&lt;script>
+		app.controller('nameCtrlClass', function() {
+			this.first: "Anson";
+			this.last:  "Gao";
+		});
+	&lt;/script>
+&lt;/head>
+&lt;body ng-controller="nameCtrlClass as nameObj">
+	&lt;span ng-bind="nameObj.first" ng-if="nameObj.first == 'Anson'">&lt;/span>
+	&lt;span ng-bind="nameObj.last" ng-if="nameObj.last == 'Chen'">&lt;/span>
+&lt;/body>
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Preview</h2>
+						<pre class="fragment" ng-controller="nameCtrlClass as nameObj" style="font-size:150%;">
+<span ng-bind="nameObj.first" ng-if="nameObj.first == 'Anson'"></span> <span ng-bind="nameObj.last" ng-if="nameObj.first == 'Chen'"></span>
+						</pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>ng-show</h2>
+					</section>
+					<section>
+						<h2>How to use?</h2>
+						<pre class="fragment">
+							<code data-trim contenteditable>
+&lt;head>
+	&lt;script>
+		app.controller('nameCtrlClass', function() {
+			this.first: "Anson";
+			this.last:  "Gao";
+		});
+	&lt;/script>
+&lt;/head>
+&lt;body ng-controller="nameCtrlClass as nameObj">
+	&lt;span ng-bind="nameObj.first" ng-show="nameObj.first != 'Anson'">&lt;/span>
+	&lt;span ng-bind="nameObj.last" ng-show="nameObj.first != 'Chen'">&lt;/span>
+&lt;/body>
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Preview</h2>
+						<pre class="fragment" ng-controller="nameCtrlClass as nameObj" style="font-size:150%;">
+<span ng-bind="nameObj.first" ng-show="nameObj.first != 'Anson'"></span> <span ng-bind="nameObj.last" ng-show="nameObj.first != 'Chen'"></span>
+						</pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>ng-show</h2>
+					</section>
+					<section>
+						<h2>How to use?</h2>
+						<pre class="fragment">
+							<code data-trim contenteditable>
+&lt;head>
+	&lt;script>
+		app.controller('nameCtrlClass', function() {
+			this.first: "Anson";
+			this.last:  "Gao";
+		});
+	&lt;/script>
+&lt;/head>
+&lt;body ng-controller="nameCtrlClass as nameObj">
+	&lt;span ng-bind="nameObj.first" ng-show="nameObj.first != 'Anson'">&lt;/span>
+	&lt;span ng-bind="nameObj.last" ng-show="nameObj.first != 'Chen'">&lt;/span>
+&lt;/body>
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Preview</h2>
+						<pre class="fragment" ng-controller="nameCtrlClass as nameObj" style="font-size:150%;">
+<span ng-bind="nameObj.first" ng-show="nameObj.first != 'Anson'"></span> <span ng-bind="nameObj.last" ng-show="nameObj.first != 'Chen'"></span>
+						</pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>ng-repeat</h2>
+					</section>
+					<section>
+						<h2>How to use?</h2>
+						<pre class="fragment">
+							<code data-trim contenteditable>
+&lt;head>
+	&lt;script>
+		app.controller('renderList', function($scope) {
+			$scope.memberList = [
+				{firstName: "Rog", lastName: "Lee"},
+				{firstName: "Derek", lastName: "Wu"},
+				{firstName: "Anson", lastName: "Gao"},
+				{firstName: "Larry", lastName: "Lo"}
+			];
+		});
+	&lt;/script>
+&lt;/head>
+&lt;body ng-controller="renderList">
+	&lt;p ng-repeat="member in memberList">
+		&lt;span ng-bind="member.firstName">&lt;/span>
+		&lt;span ng-bind="member.lastName">&lt;/span>
+	&lt;/p>
+&lt;/body>
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Preview</h2>
+						<pre class="fragment" ng-controller="renderList" style="font-size:150%;">
+<p ng-repeat="member in memberList"><span ng-bind="member.firstName"></span> <span ng-bind="member.lastName"></span></p>
+						</pre>
+					</section>
+					<section ng-controller="renderList">
+						<h2>Thinking</h2>
+						<pre style="font-size:150%;">
+<p ng-repeat="member in memberList" ng-if="speficLastName == member.lastName"><span ng-bind="member.firstName"></span> <span ng-bind="member.lastName"></span></p>
+						</pre>
+						<p class="fragment"><span>Last name is:  </span><input type="text" ng-model="speficLastName" style="height:40px;"></p>
+					</section>
+				</section>			
+
+				<section data-transition="fade">
+					<section>
+						<h2>Discuss(100%)</h2>
+					</section>
+					<section>
+						<h2>Setting Environment(20%)</h2>
+						<ul>
+							<li class="fragment"><a href="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js" target="_blank">Angularjs CDN</a></li>
+							<li class="fragment">Include it</li>
+							<li class="fragment">Build an Angular app, and the name is "webApp".</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Create a Controller(20%)</h2>
+						<p>Create a controller in head tag with $scope. You can name it by yourself.</p>
+					</section>
+					<section>
+						<h2>Use the Controller(40%)</h2>
+						<p style="text-align:left;">In the controller function, there is an array which is described for Republika ng Pilipinas. </p>
+						<p style="text-align:left;">The array includes the 81 lalawigans in Philippines. Also, the entites of the array are all objects which include 2 properties: "rehiyon" and "lalawigan", each object like this: {rehiyon: "MIMAROPA", lalawigan: "Marinduque"} .</p>
+						<p style="text-align:left;">Notice: Search all lalawigans on the Internet and complete the array.</p>
+					</section>
+					<section>
+						<h2>Show the all entities(20%)</h2>
+						<p>Just show all lalawigans and whose region.</p>
+					</section>
+					<section>
+						<h2>Add a condition(20%)</h2>
+						<p>Underline the entities when the entities is the center of the region.</p>
+					</section>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
