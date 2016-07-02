@@ -49,9 +49,10 @@
                 }
             };
             
-            var isFirstPageLoad = false;
-            if(_.cookie('isFirstPageLoad')) isFirstPageLoad = true;
-            $('#pageLoadStatus').text(isFirstPageLoad);
+            var hasLoadedBefore = _.cookie('hasLoadedBefore');
+            if(!!hasLoadedBefore) $('#pageLoadStatus').text('This page has been loaded before.');
+            else $('#pageLoadStatus').text('This page loaded at first time.');
+            _.cookie('hasLoadedBefore', true);
         </script>
     </body>
 </html>
